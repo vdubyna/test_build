@@ -3,7 +3,7 @@
 <project name="FooBar" default="dist">
 
     <target name="dist">
-        <echo msg="All OK" />
+        <echo message="All OK" />
     </target>
 
 
