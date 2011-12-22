@@ -19,12 +19,12 @@
 		<property name="junit" value="${phpunitLogs}/phpunit.xml" />
         <exec dir="${basedir}" executable="phpunit" failonerror="false" osfamily="unix" output="${buildDir}/logs/phpunit.txt">
             <arg line="--configuration ${applicationDir}/tests/phpunit.xml"/>
-        </exec>		
-		<exec dir="${applicationDir}\tests" executable="cmd" failonerror="false" osfamily="windows" output="${buildDir}\logs\phpunit.txt"> 
-			<arg line="/c phpunit.bat" />
-			<arg line="--configuration ${applicationDir}\tests\phpunit.xml" />
-		</exec>
-		<echo message="##teamcity[importData type='junit' path='${junit}']" />
+        </exec>
+
+        <echo message="${phpunitLogs}/phpunit.xml" />
+        <echo message="${phpunitLogs}/coverage" />
+
+        <echo message="##teamcity[importData type='junit' path='${junit}']" />
 
         <zip destfile="${phpunitLogs}/coverage.zip" basedir="${phpunitLogs}/coverage"/>
 		<delete dir="${phpunitLogs}/coverage"/>
