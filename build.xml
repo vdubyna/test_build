@@ -30,7 +30,7 @@
     <target name="phpunit-html-report" depends="prepare">
         <mkdir dir="${artifactsDir}/phpunit/" description="Make sure that artifacts directory exists" />
 
-        <exec dir="${basedir}" executable="phpunit" failonerror="true" output="${artifactsDir}/phpunit.log" passthru="true">
+        <exec dir="${basedir}" executable="phpunit" failonerror="true" output="${artifactsDir}/phpunit.log" logError="true">
             <arg line="--configuration ${basedir}/tests/phpunit.xml" />
             <arg line="--coverage-html ${artifactsDir}/phpunit/report" />
         </exec>
