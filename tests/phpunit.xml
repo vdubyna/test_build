@@ -11,7 +11,8 @@
         <directory>./</directory>
     </testsuite>
     <logging>
-        <log type="coverage-html" target="./logs/coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70"/>
+        <log type="junit" target="./logs/coverage/phpunit.xml" logIncompleteSkipped="false"/>
+        <!--<log type="coverage-html" target="./logs/coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70"/>-->
         <!--<log type="coverage-clover" target="./logs/coverage/coverage.xml"/>-->
     </logging>
 </phpunit>

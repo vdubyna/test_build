@@ -20,12 +20,7 @@
         <exec dir="${basedir}" executable="phpunit" failonerror="false" osfamily="unix" output="${buildDir}/logs/phpunit.txt">
             <arg line="--configuration ${applicationDir}/tests/phpunit.xml"/>
         </exec>
-
-        <echo message="${phpunitLogs}/phpunit.xml" />
-        <echo message="${phpunitLogs}/coverage" />
-
         <echo message="##teamcity[importData type='junit' path='${junit}']" />
-
         <zip destfile="${phpunitLogs}/coverage.zip" basedir="${phpunitLogs}/coverage"/>
 		<delete dir="${phpunitLogs}/coverage"/>
 		<echo message="##teamcity[publishArtifacts '${phpunitLogs}']" />
