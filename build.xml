@@ -4,7 +4,7 @@
     <property name="artifactsDir" value="${basedir}/tests/artifacts" description="Base dir for all output of build commands" />
 
     <target name="prepare">
-        <delete includeemptydirs="true" description="Clear artifacts dir">
+        <delete includeemptydirs="true" description="Clear artifacts dir" failonerror="false">
             <fileset dir="${artifactsDir}" includes="**/*" />
         </delete>
 
