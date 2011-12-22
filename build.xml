@@ -11,12 +11,20 @@
         <mkdir dir="${artifactsDir}/" />
     </target>
 
+    <target name="checkout" description="Base task - update directory with new version from server and overwrite all conflicts with files from server">
+
+        <echo message="All ok" description="Import detailed svn log to TeamCity"/>
+    </target>
+
     <target name="phpunit" depends="prepare">
         <mkdir dir="${artifactsDir}/phpunit/" description="Make sure that artifacts directory exists" />
 
         <exec dir="${basedir}" executable="phpunit" failonerror="true" output="${artifactsDir}/phpunit.log" >
             <arg line="--configuration ${basedir}/tests/phpunit.xml" />
         </exec>
+
+        <echo message="##teamcity[importData type='junit' path='${artifactsDir}/phpunit/phpunit.xml' whenNoDataPublished='error']" description="Import test status to TeamCity"/>
+        <echo message="##teamcity[publishArtifacts '${artifactsDir}/phpunit.log']" description="Import phpunit log to TeamCity"/>
     </target>
 
     <target name="phpunit-html-report" depends="prepare">
@@ -27,6 +35,10 @@
             <arg line="--coverage-html ${artifactsDir}/phpunit/report" />
         </exec>
 
+        <echo message="##teamcity[importData type='junit' path='${artifactsDir}/phpunit/phpunit.xml' whenNoDataPublished='error']" description="Import test status to TeamCity" />
+        <echo message="##teamcity[publishArtifacts '${artifactsDir}/phpunit.log']" description="Import phpunit log to TeamCity" />
+
         <zip destfile="${artifactsDir}/coverage.zip" basedir="${artifactsDir}/phpunit/report" whenempty="skip" />
+        <echo message="##teamcity[publishArtifacts '${artifactsDir}/coverage.zip']" />
     </target>
 </project>
