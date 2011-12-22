@@ -1,13 +1,11 @@
 <?php
 
-require_once "../app/Calculator.php"; 
-
 class CalculatorTest extends PHPUnit_Framework_TestCase
 {
     public function testSum()
     {
         //Arrange
-        $calc = new Calculator();
+        $calc = new Core_Calculator();
         //Act
         $result = $calc->sum(2, 2);
         //Assert

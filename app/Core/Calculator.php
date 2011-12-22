@@ -1,6 +1,6 @@
 <?php
 
-class Calculator
+class Core_Calculator
 {
     public function sum($a, $b)
     {
