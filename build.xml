@@ -58,7 +58,6 @@
 <target name="phpmd"
         description="Perform project mess detection using PHPMD">
 
-    <taskdef name="phpmd" classname="org.phpmd.ant.PHPMDTask"/>
     <phpmd rulesetfiles="${basedir}/phpmd.xml" failonerror="on">
         <formatter type="xml" toFile="${basedir}/build/logs/pmd.xml"/>
         <fileset dir="${basedir}/app">
