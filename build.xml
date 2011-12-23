@@ -128,9 +128,19 @@
 </target>
 
 <target name="phpunit" description="Run unit tests with PHPUnit">
-    <exec executable="phpunit" failonerror="true">
+    <mkdir dir="${basedir}/build/logs/phpunit/" description="Make sure that artifacts directory exists" />
+
+    <exec executable="phpunit" failonerror="true" output="${basedir}/build/logs/phpunit.log">
         <arg line="--configuration ${basedir}/tests/phpunit.xml" />
+        <arg line="--coverage-html ${basedir}/build/logs/phpunit/report" />
     </exec>
+
+    <echo message="##teamcity[importData type='junit' path='${basedir}/build/logs/phpunit/phpunit.xml' whenNoDataPublished='error']" description="Import test status to TeamCity" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/phpunit.log']" description="Import phpunit log to TeamCity" />
+
+    <zip destfile="${artifactsDir}/coverage.zip" basedir="${basedir}/build/logs/phpunit/report" whenempty="skip" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/coverage.zip']" />
+
 </target>
 
 <target name="phpcb"
