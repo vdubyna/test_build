@@ -9,6 +9,7 @@ class Core_Calculator
 
     public function devision($a, $b)
     {
+        $d = 2;
         return $a / $b;
     }
 
