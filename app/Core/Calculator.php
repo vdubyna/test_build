@@ -13,11 +13,8 @@ class Core_Calculator
         return $a / $b;
     }
 
-    public function DEVIsion1($a, $b)
-    {
-        $d = 2;
-        return $a / $b;
-    }
+    public function DEVIsion1($a, $b){$d = 2;
+        return $a / $b;}
 
 
 }
