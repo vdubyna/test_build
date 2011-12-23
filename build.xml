@@ -89,6 +89,9 @@
         <arg value="--reportfile"/>
         <arg value="${basedir}/build/logs/pmd.xml"/>
     </exec>
+
+    <echo message="##teamcity[importData type='pmd' path='${basedir}/build/logs/pmd.xml' whenNoDataPublished='error']" description="Import pmd" />
+
 </target>
 
 <target name="phpcs"
@@ -107,6 +110,8 @@
         <arg value="--standard=${basedir}/phpcs.xml"/>
         <arg path="${basedir}/app"/>
     </exec>
+
+
 </target>
 
 <target name="phpcpd" description="Find duplicate code using PHPCPD">
