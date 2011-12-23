@@ -78,6 +78,8 @@
         <arg value="text"/>
         <arg value="${basedir}/phpmd.xml"/>
     </exec>
+    <echo message="##teamcity[importData type='pmd' path='${basedir}/pmd.xml' whenNoDataPublished='error']" description="Import pmd" />
+
 </target>
 
 <target name="phpmd-ci"
@@ -111,6 +113,7 @@
         <arg path="${basedir}/app"/>
     </exec>
 
+    <echo message="##teamcity[importData type='checkstyle' path='${basedir}/build/logs/checkstyle.xml' whenNoDataPublished='error']" description="Import pmd" />
 
 </target>
 
