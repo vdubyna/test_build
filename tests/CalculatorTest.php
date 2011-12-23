@@ -12,4 +12,14 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(4, $result);
     
     }
+
+    public function testDevision()
+    {
+        //Arrange
+        $calc = new Core_Calculator();
+        //Act
+        $result = $calc->devision(4, 2);
+        //Assert
+        $this->assertEquals(2, $result);
+    }
 }

@@ -78,7 +78,6 @@
         <arg value="text"/>
         <arg value="${basedir}/phpmd.xml"/>
     </exec>
-    <echo message="##teamcity[importData type='pmd' path='${basedir}/pmd.xml' whenNoDataPublished='error']" description="Import pmd" />
 
 </target>
 
