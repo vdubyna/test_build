@@ -131,7 +131,7 @@
     <mkdir dir="${basedir}/build/logs/phpunit/" description="Make sure that artifacts directory exists" />
 
     <exec executable="phpunit" failonerror="true" output="${basedir}/build/logs/phpunit.log">
-        <arg line="--configuration ${basedir}/tests/phpunit.xml" />
+        <arg line="--configuration ${basedir}/phpunit.xml" />
         <arg line="--coverage-html ${basedir}/build/logs/phpunit/report" />
     </exec>
 

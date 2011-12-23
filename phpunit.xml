@@ -13,7 +13,7 @@
          strict="true">
 
     <testsuite name="Application">
-        <directory>./</directory>
+        <directory>./tests</directory>
     </testsuite>
 
     <logging>
