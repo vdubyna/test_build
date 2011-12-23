@@ -138,7 +138,7 @@
     <echo message="##teamcity[importData type='junit' path='${basedir}/build/logs/phpunit/phpunit.xml' whenNoDataPublished='error']" description="Import test status to TeamCity" />
     <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/phpunit.log']" description="Import phpunit log to TeamCity" />
 
-    <zip destfile="${artifactsDir}/coverage.zip" basedir="${basedir}/build/logs/phpunit/report" whenempty="skip" />
+    <zip destfile="${basedir}/build/logs/coverage.zip" basedir="${basedir}/build/logs/phpunit/report" whenempty="skip" />
     <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/coverage.zip']" />
 
 </target>
