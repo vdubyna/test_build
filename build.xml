@@ -50,8 +50,19 @@
         <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml"/>
         <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg"/>
         <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg"/>
+        <arg line="--phpunit-xml=${basedir}/build/logs/pdepend.phpunit.xml"></arg>
+        <arg line="--summary-xml=${basedir}/build/logs/pdepend.summary.xml"></arg>
+        <arg line="--coverage-report=${basedir}/build/logs/phpunit.clover.xml"></arg>
+        <arg line="--coderank-mode=inheritance,property,method"></arg>
         <arg path="${basedir}/app"/>
     </exec>
+
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/pdepend.jdepend.chart.png']" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/pdepend.jdepend.xml']" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/pdepend.overview.pyramid.png']" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/pdepend.phpunit.xml']" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/pdepend.summary.xml']" />
+    <echo message="##teamcity[publishArtifacts '${basedir}/build/logs/phpunit.clover.xml']" />
 </target>
 
 <target name="phpmd-ci"
