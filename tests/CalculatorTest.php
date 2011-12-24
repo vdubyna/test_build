@@ -18,7 +18,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
         //Arrange
         $calc = new Core_Calculator();
         //Act
-        $result = $calc->devision(4, 2);
+        $result = $calc->division(4, 2);
         //Assert
         $this->assertEquals(2, $result);
     }
