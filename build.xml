@@ -47,9 +47,9 @@
 <target name="pdepend"
         description="Calculate software metrics using PHP_Depend">
     <exec executable="pdepend">
-        <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml"/>
-        <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg"/>
-        <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg"/>
+        <arg value="--jdepend-xml=${basedir}/build/logs/pdepend.jdepend.xml"/>
+        <arg value="--jdepend-chart=${basedir}/build/logs/pdepend.jdepend.chart.png"/>
+        <arg value="--overview-pyramid=${basedir}/build/logs/pdepend.overview.pyramid.png"/>
         <arg line="--phpunit-xml=${basedir}/build/logs/pdepend.phpunit.xml"></arg>
         <arg line="--summary-xml=${basedir}/build/logs/pdepend.summary.xml"></arg>
         <arg line="--coderank-mode=inheritance,property,method"></arg>
